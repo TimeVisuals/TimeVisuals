@@ -334,7 +334,6 @@
       <h3>Пополнение баланса</h3>
       <p>Чтобы пополнить баланс, отправьте звёзды в наш Telegram. После перевода напишите нам, и мы начислим средства.</p>
       
-      <!-- Ссылка на твой ТГ аккаунт (замени на свой личный профиль для приема звезд) -->
       <a href="https://t.me/+EzBIY4N_2YdiNDMy" target="_blank" class="btn-tg">Перейти в Telegram</a>
       <button class="btn-close" onclick="closeModal()">Закрыть</button>
     </div>
@@ -346,4 +345,6 @@
     const sec = now.getSeconds();
     const min = now.getMinutes();
     const hr = now.getHours();
-    const sec
+    const secDeg = sec * 6;
+    const minDeg = min * 6 + sec * 0.1;
+    const hrDeg = (hr % 12) * 30 + 
