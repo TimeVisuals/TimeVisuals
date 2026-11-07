@@ -224,9 +224,9 @@
     </div>
     
     <div class="nav-links">
-      <button class="nav-btn active" onclick="switchTab('home', this)">Функции</button>
-      <button class="nav-btn" onclick="switchTab('shop', this)">Магазин</button>
-      <button class="nav-btn" onclick="switchTab('support', this)">Поддержка</button>
+      <button type="button" class="nav-btn active" onclick="switchTab('home', this)">Функции</button>
+      <button type="button" class="nav-btn" onclick="switchTab('shop', this)">Магазин</button>
+      <button type="button" class="nav-btn" onclick="switchTab('support', this)">Поддержка</button>
     </div>
     
     <div class="balance-badge">
@@ -238,7 +238,7 @@
     <section class="hero">
       <h1>ТВОЙ MINECRAFT<br>СТАНЕТ ЛУЧШЕ</h1>
       <p>Мощный игровой клиент, который изменит твое восприятие игры. Скачивай и играй по своим правилам.</p>
-      <button class="btn-hero" onclick="alert('Скачивание клиента TimeVisuals...')">Скачать клиент</button>
+      <button type="button" class="btn-hero" onclick="alert('Скачивание клиента TimeVisuals...')">Скачать клиент</button>
     </section>
 
     <section class="section">
@@ -278,7 +278,7 @@
           <p>Реалистичное освещение и глубокая зелень лесов.</p>
           <div class="price-row">
             <div class="price">150 ₽</div>
-            <button class="btn-buy" onclick="buyItem('Шейдеры Forest', 150)">Купить</button>
+            <button type="button" class="btn-buy" onclick="buyItem('Шейдеры Forest', 150)">Купить</button>
           </div>
         </div>
         <div class="shop-card">
@@ -286,7 +286,7 @@
           <p>Доступ ко всем функциям клиента на месяц.</p>
           <div class="price-row">
             <div class="price">299 ₽</div>
-            <button class="btn-buy" onclick="buyItem('Подписка Premium', 299)">Купить</button>
+            <button type="button" class="btn-buy" onclick="buyItem('Подписка Premium', 299)">Купить</button>
           </div>
         </div>
         <div class="shop-card">
@@ -294,7 +294,7 @@
           <p>Анимированный неоновый плащ для твоего скина.</p>
           <div class="price-row">
             <div class="price">99 ₽</div>
-            <button class="btn-buy" onclick="buyItem('Плащ TimeVisuals', 99)">Купить</button>
+            <button type="button" class="btn-buy" onclick="buyItem('Плащ TimeVisuals', 99)">Купить</button>
           </div>
         </div>
       </div>
@@ -335,16 +335,14 @@
       <p>Чтобы пополнить баланс, отправьте звёзды в наш Telegram. После перевода напишите нам, и мы начислим средства.</p>
       
       <a href="https://t.me/+EzBIY4N_2YdiNDMy" target="_blank" class="btn-tg">Перейти в Telegram</a>
-      <button class="btn-close" onclick="closeModal()">Закрыть</button>
+      <button type="button" class="btn-close" onclick="closeModal()">Закрыть</button>
     </div>
   </div>
 
 <script>
+  // Часы
   function setClock() {
     const now = new Date();
     const sec = now.getSeconds();
     const min = now.getMinutes();
-    const hr = now.getHours();
-    const secDeg = sec * 6;
-    const minDeg = min * 6 + sec * 0.1;
-    const hrDeg = (hr % 12) * 30 + 
+    const hr
