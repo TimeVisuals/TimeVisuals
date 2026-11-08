@@ -136,7 +136,7 @@
   .hero h1 { font-family: 'Space Grotesk', sans-serif; font-size: 3rem; line-height: 1.1; margin-bottom: 20px; background: linear-gradient(90deg, #fff, var(--blue), #fff); background-size: 300% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: gradientText 4s linear infinite; text-shadow: 0 5px 15px rgba(0,0,0,0.5);}
   @keyframes gradientText { to { background-position: 300% center; } }
   .hero p { color: #ccc; font-size: 1.1rem; max-width: 500px; margin: 0 auto 40px; line-height: 1.5; text-shadow: 0 2px 5px rgba(0,0,0,0.8);}
-  .btn-hero { background: linear-gradient(135deg, #2563eb, #3b82f6); color: #fff; font-weight: 800; font-size: 1.1rem; padding: 18px 40px; border: none; border-radius: 30px; cursor: pointer; transition: 0.3s; box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3); }
+  .btn-hero { background: linear-gradient(135deg, #2563eb, #3b82f6); color: #fff; font-weight: 800; font-size: 1.1rem; padding: 18px 40px; border: none; border-radius: 30px; cursor: pointer; transition: 0.3s; box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3); text-decoration: none; display: inline-block; }
   .btn-hero:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(59, 130, 246, 0.5); }
 
   .section { padding: 40px 24px; max-width: 1000px; margin: 0 auto; width: 100%; }
@@ -157,18 +157,17 @@
   input:checked + .slider:before { transform: translateX(22px); }
 
   .shop-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-  .shop-card { background: var(--card-bg); backdrop-filter: blur(15px); border: 1px solid var(--border); border-radius: 20px; padding: 24px; position: relative; overflow: hidden; transition: 0.3s; }
+  .shop-card { background: var(--card-bg); backdrop-filter: blur(15px); border: 1px solid var(--border); border-radius: 20px; padding: 24px; position: relative; overflow: hidden; transition: 0.3s; display: flex; flex-direction: column; }
   .shop-card:hover { border-color: var(--blue); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2); }
   .shop-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(90deg, transparent, var(--blue), transparent); }
   .shop-card h3 { font-size: 1.2rem; margin-bottom: 8px; }
-  .shop-card p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px; }
+  .shop-card p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px; flex-grow: 1; }
   .price-row { display: flex; justify-content: space-between; align-items: center; }
   .price { font-size: 1.4rem; font-weight: 800; color: var(--blue); }
   
-  /* Измененная кнопка покупки/скачивания */
   .btn-buy { 
     background: #fff; color: #000; font-weight: 700; border: none; padding: 10px 20px; 
-    border-radius: 12px; cursor: pointer; transition: 0.2s; text-decoration: none; display: inline-block;
+    border-radius: 12px; cursor: pointer; transition: 0.2s; text-decoration: none; display: inline-block; text-align: center;
   }
   .btn-buy:hover { background: var(--blue); color: #fff; box-shadow: 0 0 15px var(--blue-glow); }
 
@@ -228,9 +227,9 @@
     </div>
     
     <div class="nav-links">
-      <button class="nav-btn active" onclick="switchTab('home')">Функции</button>
-      <button class="nav-btn" onclick="switchTab('shop')">Магазин</button>
-      <button class="nav-btn" onclick="switchTab('support')">Поддержка</button>
+      <button type="button" class="nav-btn active" onclick="switchTab('home')">Функции</button>
+      <button type="button" class="nav-btn" onclick="switchTab('shop')">Магазин</button>
+      <button type="button" class="nav-btn" onclick="switchTab('support')">Поддержка</button>
     </div>
     
     <div class="balance-badge">
@@ -242,8 +241,7 @@
     <section class="hero">
       <h1>ТВОЙ MINECRAFT<br>СТАНЕТ ЛУЧШЕ</h1>
       <p>Мощный игровой клиент, который изменит твое восприятие игры. Скачивай и играй по своим правилам.</p>
-      <!-- ССЫЛКА НА СКАЧИВАНИЕ КЛИЕНТА (если надо, тоже можно поменять) -->
-      <a href="TimeVisual (61).zip" download class="btn-hero" style="text-decoration: none; display: inline-block;">Скачать клиент</a>
+      <a href="TimeVisual (61).zip" download class="btn-hero">Скачать клиент</a>
     </section>
 
     <section class="section">
@@ -279,13 +277,12 @@
       <div class="section-title">Магазин</div>
       <div class="shop-grid">
         
-        <!-- ТОВАР 1: ТВОЙ АРХИВ С GITHUB -->
         <div class="shop-card">
           <h3>TimeVisuals Pack</h3>
           <p>Полный пак наших визуалов. Скачай архив и распакуй в папку с игрой.</p>
           <div class="price-row">
             <div class="price">Бесплатно</div>
-            <a href="TimeVisual (61).zip" download class="btn-buy">Скачать</a>
+            <a href="TimeVisual (61).zip" download class="btn-buy" style="width: 100%;">Скачать</a>
           </div>
         </div>
 
@@ -294,7 +291,7 @@
           <p>Доступ ко всем функциям клиента на месяц.</p>
           <div class="price-row">
             <div class="price">299 ₽</div>
-            <button class="btn-buy" onclick="buyItem('Подписка Premium', 299)">Купить</button>
+            <button type="button" class="btn-buy" onclick="buyItem('Подписка Premium', 299)">Купить</button>
           </div>
         </div>
         
@@ -303,7 +300,7 @@
           <p>Анимированный неоновый плащ для твоего скина.</p>
           <div class="price-row">
             <div class="price">99 ₽</div>
-            <button class="btn-buy" onclick="buyItem('Плащ TimeVisuals', 99)">Купить</button>
+            <button type="button" class="btn-buy" onclick="buyItem('Плащ TimeVisuals', 99)">Купить</button>
           </div>
         </div>
 
@@ -343,13 +340,12 @@
       <h3>Пополнение баланса</h3>
       <p>Чтобы пополнить баланс, отправьте звёзды в наш Telegram. После перевода напишите нам, и мы начислим средства.</p>
       <a href="https://t.me/+EzBIY4N_2YdiNDMy" target="_blank" class="btn-tg">Перейти в Telegram</a>
-      <button class="btn-close" onclick="closeModal()">Закрыть</button>
+      <button type="button" class="btn-close" onclick="closeModal()">Закрыть</button>
     </div>
   </div>
 
 <script>
-  // Часы
+  // --- 1. ЧАСЫ ---
   function setClock() {
     const now = new Date();
-    const sec = now.getSeconds();
-    co
+    const sec = now.getSeco
