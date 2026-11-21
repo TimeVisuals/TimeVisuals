@@ -9,516 +9,235 @@
 <style>
 :root {
   --bg: #080d18;
-  --panel: #111c30;
   --blue: #438cff;
   --purple: #a56bff;
   --cyan: #62e5ff;
   --text: #edf5ff;
   --muted: #91a4bd;
 }
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+* { margin:0; padding:0; box-sizing:border-box; }
 body {
-  font-family: 'Manrope', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  min-height: 100vh;
-  overflow-x: hidden;
+  font-family:Manrope,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
+  overflow-x:hidden;
 }
-
 body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background:
-    radial-gradient(circle at 15% 10%, #2868c52b, transparent 40%),
-    radial-gradient(circle at 85% 50%, #8149d51c, transparent 40%);
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  background:radial-gradient(circle at 15% 10%,#2868c52b,transparent 40%),radial-gradient(circle at 85% 50%,#8149d51c,transparent 40%);
 }
-
 header {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  min-height: 80px;
-  padding: 15px 7%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  background: #080e1add;
-  backdrop-filter: blur(18px);
-  border-bottom: 1px solid #ffffff12;
+  position:sticky;
+  top:0;
+  z-index:10;
+  min-height:80px;
+  padding:15px 7%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  background:#080e1add;
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid #ffffff12;
 }
-
 .brand {
-  font-size: 24px;
-  font-weight: 800;
-  letter-spacing: -1px;
-  background: linear-gradient(110deg,#fff,#438cff,#a56bff,#62e5ff,#fff);
-  background-size: 300% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: shine 5s linear infinite;
+  font-size:24px;
+  font-weight:800;
+  letter-spacing:-1px;
+  background:linear-gradient(110deg,#fff,#438cff,#a56bff,#62e5ff,#fff);
+  background-size:300% auto;
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  animation:shine 5s linear infinite;
 }
-
-nav {
-  display: flex;
-  gap: 22px;
-  align-items: center;
-}
-
+nav { display:flex; gap:22px; align-items:center; }
 nav button {
-  background: none;
-  border: none;
-  color: #a9bad0;
-  font: inherit;
-  font-size: 13px;
-  cursor: pointer;
-  transition: .25s;
+  background:none;
+  border:none;
+  color:#a9bad0;
+  font:inherit;
+  font-size:13px;
+  cursor:pointer;
+  transition:.25s;
 }
-
-nav button:hover,
-nav button.active {
-  color: white;
-}
-
+nav button:hover,nav button.active { color:white; }
 .account-btn {
-  border: none;
-  padding: 11px 20px;
-  border-radius: 11px;
-  color: #061321;
-  font-weight: 800;
-  cursor: pointer;
-  background: linear-gradient(110deg,#438cff,#a56bff,#62e5ff,#438cff);
-  background-size: 300% auto;
-  animation: shine 5s linear infinite;
-  box-shadow: 0 0 20px #559dff35;
+  border:none;
+  padding:11px 20px;
+  border-radius:11px;
+  color:#061321;
+  font-weight:800;
+  cursor:pointer;
+  background:linear-gradient(110deg,#438cff,#a56bff,#62e5ff,#438cff);
+  background-size:300% auto;
+  animation:shine 5s linear infinite;
+  box-shadow:0 0 20px #559dff35;
 }
-
-@keyframes shine {
-  to { background-position: 300% center; }
-}
-
-main {
-  max-width: 1150px;
-  margin: auto;
-  padding: 65px 24px;
-}
-
-.page {
-  display: none;
-  animation: appear .4s ease;
-}
-
-.page.active {
-  display: block;
-}
-
+@keyframes shine { to { background-position:300% center; } }
+main { max-width:1150px; margin:auto; padding:65px 24px; }
+.page { display:none; animation:appear .4s ease; }
+.page.active { display:block; }
 @keyframes appear {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity:0; transform:translateY(12px); }
+  to { opacity:1; transform:translateY(0); }
 }
-
-.hero {
-  text-align: center;
-  padding: 75px 15px 65px;
-}
-
+.hero { text-align:center; padding:75px 15px 65px; }
 .tag {
-  display: inline-block;
-  padding: 8px 15px;
-  border: 1px solid #438cff55;
-  background: #438cff12;
-  border-radius: 30px;
-  color: #8fcaff;
-  font-size: 12px;
-  margin-bottom: 25px;
+  display:inline-block;
+  padding:8px 15px;
+  border:1px solid #438cff55;
+  background:#438cff12;
+  border-radius:30px;
+  color:#8fcaff;
+  font-size:12px;
+  margin-bottom:25px;
 }
-
 .hero h1 {
-  font-size: clamp(42px,8vw,76px);
-  font-weight: 800;
-  letter-spacing: -4px;
-  line-height: 1.1;
+  font-size:clamp(42px,8vw,76px);
+  font-weight:800;
+  letter-spacing:-4px;
+  line-height:1.1;
 }
-
 .gradient {
-  background: linear-gradient(100deg,#fff 5%,#438cff 35%,#a56bff 60%,#62e5ff 85%);
-  background-size: 250% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: shine 6s linear infinite;
+  background:linear-gradient(100deg,#fff 5%,#438cff 35%,#a56bff 60%,#62e5ff 85%);
+  background-size:250% auto;
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  animation:shine 6s linear infinite;
 }
-
 .hero p {
-  color: var(--muted);
-  max-width: 600px;
-  margin: 22px auto 30px;
-  line-height: 1.8;
-  font-size: 15px;
+  color:var(--muted);
+  max-width:600px;
+  margin:22px auto 30px;
+  line-height:1.8;
+  font-size:15px;
 }
-
 .primary {
-  display: inline-block;
-  padding: 14px 24px;
-  border: 0;
-  border-radius: 12px;
-  background: linear-gradient(110deg,#438cff,#62cfff);
-  color: #071321;
-  font-weight: 800;
-  cursor: pointer;
-  transition: .25s;
+  display:inline-block;
+  padding:14px 24px;
+  border:0;
+  border-radius:12px;
+  background:linear-gradient(110deg,#438cff,#62cfff);
+  color:#071321;
+  font-weight:800;
+  cursor:pointer;
+  transition:.25s;
 }
-
-.primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 30px #438cff44;
+.primary:hover { transform:translateY(-3px); box-shadow:0 8px 30px #438cff44; }
+.section-title { font-size:29px; margin-bottom:12px; letter-spacing:-1px; }
+.section-desc { color:var(--muted); font-size:14px; margin-bottom:30px; }
+.stats { display:grid; grid-template-columns:repeat(3,1fr); gap:15px; margin:20px 0 65px; }
+.stat,.card,.review,.account-box {
+  background:linear-gradient(145deg,#111e32,#0c1422);
+  border:1px solid #ffffff12;
+  border-radius:17px;
 }
-
-.section-title {
-  font-size: 29px;
-  margin-bottom: 12px;
-  letter-spacing: -1px;
-}
-
-.section-desc {
-  color: var(--muted);
-  font-size: 14px;
-  margin-bottom: 30px;
-}
-
-.stats {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 15px;
-  margin: 20px 0 65px;
-}
-
-.stat,
-.card,
-.review,
-.account-box {
-  background: linear-gradient(145deg,#111e32,#0c1422);
-  border: 1px solid #ffffff12;
-  border-radius: 17px;
-}
-
-.stat {
-  padding: 25px;
-  text-align: center;
-}
-
-.stat strong {
-  font-size: 27px;
-  display: block;
-  color: #8bcaff;
-}
-
-.stat span {
-  color: var(--muted);
-  font-size: 12px;
-}
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 18px;
-}
-
-.card {
-  padding: 23px;
-  transition: .3s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  border-color: #438cff80;
-  box-shadow: 0 12px 35px #0005;
-}
-
+.stat { padding:25px; text-align:center; }
+.stat strong { font-size:27px; display:block; color:#8bcaff; }
+.stat span { color:var(--muted); font-size:12px; }
+.cards { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+.card { padding:23px; transition:.3s; }
+.card:hover { transform:translateY(-5px); border-color:#438cff80; box-shadow:0 12px 35px #0005; }
 .card-icon {
-  width: 43px;
-  height: 43px;
-  border-radius: 12px;
-  display: grid;
-  place-items: center;
-  background: #438cff20;
-  color: #80bdff;
-  font-size: 21px;
-  margin-bottom: 18px;
+  width:43px; height:43px; border-radius:12px;
+  display:grid; place-items:center;
+  background:#438cff20; color:#80bdff;
+  font-size:21px; margin-bottom:18px;
 }
-
-.card h3 {
-  font-size: 17px;
-  margin-bottom: 9px;
-}
-
-.card p {
-  font-size: 13px;
-  color: var(--muted);
-  line-height: 1.7;
-}
-
+.card h3 { font-size:17px; margin-bottom:9px; }
+.card p { font-size:13px; color:var(--muted); line-height:1.7; }
 .small-btn {
-  margin-top: 20px;
-  padding: 9px 14px;
-  background: #438cff18;
-  color: #91c6ff;
-  border: 1px solid #438cff40;
-  border-radius: 9px;
-  cursor: pointer;
+  margin-top:20px; padding:9px 14px;
+  background:#438cff18; color:#91c6ff;
+  border:1px solid #438cff40; border-radius:9px; cursor:pointer;
 }
-
-.filters {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-bottom: 22px;
+.filters { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:22px; }
+.filters button,.filters input {
+  border:1px solid #ffffff1a; background:#111b2b;
+  color:white; padding:11px 15px; border-radius:10px;
+  font:inherit; font-size:13px;
 }
-
-.filters button,
-.filters input {
-  border: 1px solid #ffffff1a;
-  background: #111b2b;
-  color: white;
-  padding: 11px 15px;
-  border-radius: 10px;
-  font: inherit;
-  font-size: 13px;
+.filters button { cursor:pointer; }
+.filters button.active { background:#438cff30; border-color:#438cff; }
+.filters input { flex:1; min-width:180px; outline:none; }
+.form { max-width:540px; display:grid; gap:13px; }
+.form input,.form textarea,.form select {
+  width:100%; background:#0c1626; color:white;
+  border:1px solid #ffffff20; border-radius:10px;
+  padding:13px 15px; font:inherit; outline:none;
 }
-
-.filters button {
-  cursor: pointer;
-}
-
-.filters button.active {
-  background: #438cff30;
-  border-color: #438cff;
-}
-
-.filters input {
-  flex: 1;
-  min-width: 180px;
-  outline: none;
-}
-
-.form {
-  max-width: 540px;
-  display: grid;
-  gap: 13px;
-}
-
-.form input,
-.form textarea,
-.form select {
-  width: 100%;
-  background: #0c1626;
-  color: white;
-  border: 1px solid #ffffff20;
-  border-radius: 10px;
-  padding: 13px 15px;
-  font: inherit;
-  outline: none;
-}
-
-.form textarea {
-  min-height: 110px;
-  resize: vertical;
-}
-
-.form input:focus,
-.form textarea:focus {
-  border-color: var(--blue);
-}
-
+.form textarea { min-height:110px; resize:vertical; }
+.form input:focus,.form textarea:focus { border-color:var(--blue); }
 .telegram-box {
-  padding: 40px;
-  text-align: center;
-  background: linear-gradient(130deg,#142746,#10182b);
-  border: 1px solid #438cff44;
-  border-radius: 20px;
+  padding:40px; text-align:center;
+  background:linear-gradient(130deg,#142746,#10182b);
+  border:1px solid #438cff44; border-radius:20px;
 }
-
-.telegram-box h2 {
-  font-size: 28px;
-  margin-bottom: 12px;
-}
-
-.telegram-box p {
-  color: var(--muted);
-  margin-bottom: 25px;
-}
-
-.telegram-box a {
-  text-decoration: none;
-}
-
-.review {
-  padding: 20px;
-  margin-top: 14px;
-}
-
-.review p {
-  color: var(--muted);
-  font-size: 14px;
-  margin-top: 8px;
-}
-
-.stars {
-  color: #ffd36a;
-  letter-spacing: 3px;
-}
-
-.account-box {
-  max-width: 440px;
-  margin: 0 auto;
-  padding: 30px;
-}
-
-.account-box h2 {
-  margin-bottom: 10px;
-}
-
-.account-box > p {
-  color: var(--muted);
-  font-size: 13px;
-  margin-bottom: 22px;
-}
-
-.account-box .form {
-  max-width: none;
-}
-
-.account-box .primary {
-  width: 100%;
-}
-
-.note {
-  color: #8498b2;
-  font-size: 11px;
-  line-height: 1.6;
-  margin-top: 15px;
-}
-
+.telegram-box h2 { font-size:28px; margin-bottom:12px; }
+.telegram-box p { color:var(--muted); margin-bottom:25px; }
+.telegram-box a { text-decoration:none; }
+.review { padding:20px; margin-top:14px; }
+.review p { color:var(--muted); font-size:14px; margin-top:8px; }
+.stars { color:#ffd36a; letter-spacing:3px; }
+.account-box { max-width:440px; margin:0 auto; padding:30px; }
+.account-box h2 { margin-bottom:10px; }
+.account-box > p { color:var(--muted); font-size:13px; margin-bottom:22px; }
+.account-box .form { max-width:none; }
+.account-box .primary { width:100%; }
+.note { color:#8498b2; font-size:11px; line-height:1.6; margin-top:15px; }
 footer {
-  border-top: 1px solid #ffffff12;
-  padding: 28px 20px;
-  text-align: center;
-  color: #72849d;
-  font-size: 12px;
+  border-top:1px solid #ffffff12;
+  padding:28px 20px; text-align:center;
+  color:#72849d; font-size:12px;
 }
-
 @media(max-width:750px) {
-  header {
-    padding: 15px 5%;
-    flex-wrap: wrap;
-    gap: 15px;
-  }
-
-  nav {
-    order: 3;
-    width: 100%;
-    justify-content: space-between;
-    gap: 8px;
-  }
-
-  nav button {
-    font-size: 11px;
-  }
-
-  .brand {
-    font-size: 20px;
-  }
-
-  .hero {
-    padding: 55px 5px;
-  }
-
-  .hero h1 {
-    letter-spacing: -2px;
-  }
-
-  .cards,
-  .stats {
-    grid-template-columns: 1fr;
-  }
-
-  main {
-    padding: 45px 18px;
-  }
+  header { padding:15px 5%; flex-wrap:wrap; gap:15px; }
+  nav { order:3; width:100%; justify-content:space-between; gap:8px; }
+  nav button { font-size:11px; }
+  .brand { font-size:20px; }
+  .hero { padding:55px 5px; }
+  .hero h1 { letter-spacing:-2px; }
+  .cards,.stats { grid-template-columns:1fr; }
+  main { padding:45px 18px; }
 }
 </style>
 </head>
 
 <body>
-
 <header>
   <div class="brand">TimeVisuals</div>
-
   <nav>
     <button class="active" onclick="showPage('home',this)">Главная</button>
     <button onclick="showPage('configs',this)">Конфиги</button>
     <button onclick="showPage('telegram',this)">Telegram</button>
     <button onclick="showPage('reviews',this)">Отзывы</button>
   </nav>
-
   <button class="account-btn" onclick="showPage('account')">Аккаунт</button>
 </header>
 
 <main>
-
 <section class="page active" id="home">
-
   <div class="hero">
     <div class="tag">MINECRAFT VISUAL EXPERIENCE</div>
-
-    <h1>
-      Твой Minecraft.<br>
-      <span class="gradient">Твои правила.</span>
-    </h1>
-
-    <p>
-      TimeVisuals — пространство игровых конфигов,
-      настроек и визуальных решений для комфортной игры.
-    </p>
-
-    <button class="primary" onclick="showPage('configs')">
-      Смотреть конфиги →
-    </button>
+    <h1>Твой Minecraft.<br><span class="gradient">Твои правила.</span></h1>
+    <p>TimeVisuals — пространство игровых конфигов, настроек и визуальных решений для комфортной игры.</p>
+    <button class="primary" onclick="showPage('configs')">Смотреть конфиги →</button>
   </div>
 
   <div class="stats">
-    <div class="stat">
-      <strong>120+</strong>
-      <span>Игровых решений</span>
-    </div>
-
-    <div class="stat">
-      <strong>98%</strong>
-      <span>Удовлетворённость</span>
-    </div>
-
-    <div class="stat">
-      <strong>24/7</strong>
-      <span>Доступ к проекту</span>
-    </div>
+    <div class="stat"><strong>120+</strong><span>Игровых решений</span></div>
+    <div class="stat"><strong>98%</strong><span>Удовлетворённость</span></div>
+    <div class="stat"><strong>24/7</strong><span>Доступ к проекту</span></div>
   </div>
 
-  <h2 class="section-title">
-    Возможности <span class="gradient">TimeVisuals</span>
-  </h2>
-
-  <p class="section-desc">
-    Всё необходимое собрано в одном месте.
-  </p>
+  <h2 class="section-title">Возможности <span class="gradient">TimeVisuals</span></h2>
+  <p class="section-desc">Всё необходимое собрано в одном месте.</p>
 
   <div class="cards">
     <div class="card">
@@ -527,13 +246,11 @@ footer {
       <p>Подборки настроек для разных игровых режимов и задач.</p>
       <button class="small-btn" onclick="showPage('configs')">Перейти →</button>
     </div>
-
     <div class="card">
       <div class="card-icon">✦</div>
       <h3>Уникальный стиль</h3>
       <p>Продуманный дизайн, удобная навигация и приятный интерфейс.</p>
     </div>
-
     <div class="card">
       <div class="card-icon">◈</div>
       <h3>Сообщество</h3>
@@ -541,18 +258,11 @@ footer {
       <button class="small-btn" onclick="showPage('telegram')">Открыть →</button>
     </div>
   </div>
-
 </section>
 
 <section class="page" id="configs">
-
-  <h2 class="section-title">
-    Каталог <span class="gradient">конфигов</span>
-  </h2>
-
-  <p class="section-desc">
-    Выбирай подходящие настройки для своей игры.
-  </p>
+  <h2 class="section-title">Каталог <span class="gradient">конфигов</span></h2>
+  <p class="section-desc">Выбирай подходящие настройки для своей игры.</p>
 
   <div class="filters">
     <input id="search" placeholder="Поиск конфигов..." oninput="filterConfigs()">
@@ -563,58 +273,44 @@ footer {
   </div>
 
   <div class="cards" id="config-list">
-
     <div class="card config" data-category="PvP">
       <div class="card-icon">⚔</div>
       <h3>PvP Config</h3>
       <p>Подборка настроек для PvP-режимов.</p>
       <button class="small-btn" onclick="alert('Файл пока не добавлен')">Скачать</button>
     </div>
-
     <div class="card config" data-category="FPS">
       <div class="card-icon">⚡</div>
       <h3>FPS Boost</h3>
       <p>Настройки для комфортной производительности.</p>
       <button class="small-btn" onclick="alert('Файл пока не добавлен')">Скачать</button>
     </div>
-
     <div class="card config" data-category="Другое">
       <div class="card-icon">✧</div>
       <h3>Visual Setup</h3>
       <p>Подборка визуальных настроек Minecraft.</p>
       <button class="small-btn" onclick="alert('Файл пока не добавлен')">Скачать</button>
     </div>
-
   </div>
 </section>
 
 <section class="page" id="telegram">
   <div class="telegram-box">
     <div class="card-icon" style="margin:0 auto 20px">✈</div>
-
     <h2>TimeVisuals <span class="gradient">Community</span></h2>
-
     <p>Новости проекта, обновления и общение с участниками.</p>
-
-    <a href="https://t.me/" target="_blank" rel="noopener">
+    <a href="https://t.me/+EzBIY4N_2YdiNDMy" target="_blank" rel="noopener">
       <button class="primary">Перейти в Telegram →</button>
     </a>
   </div>
 </section>
 
 <section class="page" id="reviews">
-
-  <h2 class="section-title">
-    Отзывы <span class="gradient">пользователей</span>
-  </h2>
-
-  <p class="section-desc">
-    Поделись впечатлениями о TimeVisuals.
-  </p>
+  <h2 class="section-title">Отзывы <span class="gradient">пользователей</span></h2>
+  <p class="section-desc">Поделись впечатлениями о TimeVisuals.</p>
 
   <form class="form" onsubmit="addReview(event)">
     <input id="review-name" placeholder="Твоё имя" required maxlength="30">
-
     <select id="review-rating">
       <option value="5">★★★★★ — 5 звёзд</option>
       <option value="4">★★★★ — 4 звезды</option>
@@ -622,99 +318,61 @@ footer {
       <option value="2">★★ — 2 звезды</option>
       <option value="1">★ — 1 звезда</option>
     </select>
-
     <textarea id="review-text" placeholder="Напиши свой отзыв..." required maxlength="500"></textarea>
-
     <button class="primary" type="submit">Опубликовать отзыв</button>
   </form>
 
   <div id="reviews-list"></div>
-
-  <p class="note">
-    Отзывы в этой версии сохраняются только в браузере устройства.
-  </p>
-
+  <p class="note">Отзывы в этой версии сохраняются только в браузере этого устройства.</p>
 </section>
 
 <section class="page" id="account">
-
   <div class="account-box">
     <h2>Твой <span class="gradient">аккаунт</span></h2>
-
     <p>Войди или зарегистрируйся в TimeVisuals.</p>
-
     <form class="form" onsubmit="demoLogin(event)">
       <input id="username" placeholder="Имя пользователя" required>
       <input id="email" type="email" placeholder="Электронная почта" required>
       <input id="password" type="password" placeholder="Пароль" required minlength="6">
-
       <button class="primary" type="submit">Продолжить</button>
     </form>
-
-    <p class="note" id="account-message">
-      Демоверсия. Для настоящей регистрации нужно подключить Firebase.
-    </p>
+    <p class="note" id="account-message">Демоверсия. Для настоящей регистрации нужно подключить Firebase.</p>
   </div>
-
 </section>
-
 </main>
 
-<footer>
-  © 2026 TimeVisuals. Все права защищены.
-</footer>
+<footer>© 2026 TimeVisuals. Все права защищены.</footer>
 
 <script>
 let currentFilter = 'Все';
 
 function showPage(id, button) {
-  document.querySelectorAll('.page').forEach(page => {
-    page.classList.remove('active');
-  });
-
+  document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
   document.getElementById(id).classList.add('active');
-
-  document.querySelectorAll('nav button').forEach(btn => {
-    btn.classList.remove('active');
-  });
-
+  document.querySelectorAll('nav button').forEach(btn => btn.classList.remove('active'));
   if (button) button.classList.add('active');
-
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo({top:0,behavior:'smooth'});
 }
 
 function setFilter(category, button) {
   currentFilter = category;
-
-  document.querySelectorAll('.filters button').forEach(btn => {
-    btn.classList.remove('active');
-  });
-
+  document.querySelectorAll('.filters button').forEach(btn => btn.classList.remove('active'));
   button.classList.add('active');
   filterConfigs();
 }
 
 function filterConfigs() {
   const search = document.getElementById('search').value.toLowerCase();
-
   document.querySelectorAll('.config').forEach(card => {
-    const matchesCategory =
-      currentFilter === 'Все' ||
-      card.dataset.category === currentFilter;
-
-    const matchesSearch =
-      card.innerText.toLowerCase().includes(search);
-
-    card.style.display =
-      matchesCategory && matchesSearch ? '' : 'none';
+    const matchesCategory = currentFilter === 'Все' || card.dataset.category === currentFilter;
+    const matchesSearch = card.innerText.toLowerCase().includes(search);
+    card.style.display = matchesCategory && matchesSearch ? '' : 'none';
   });
 }
 
 function getReviews() {
   try {
-    return JSON.parse(
-      localStorage.getItem('timevisuals-reviews') || '[]'
-    );
+    return JSON.parse(localStorage.getItem('timevisuals-reviews') || '[]');
   } catch {
     return [];
   }
@@ -723,44 +381,30 @@ function getReviews() {
 function renderReviews() {
   const list = document.getElementById('reviews-list');
   list.innerHTML = '';
-
   getReviews().reverse().forEach(review => {
     const item = document.createElement('div');
     item.className = 'review';
-
     const name = document.createElement('strong');
     name.textContent = review.name;
-
     const stars = document.createElement('div');
     stars.className = 'stars';
-    stars.textContent =
-      '★'.repeat(review.rating) +
-      '☆'.repeat(5 - review.rating);
-
+    stars.textContent = '★'.repeat(review.rating) + '☆'.repeat(5-review.rating);
     const message = document.createElement('p');
     message.textContent = review.text;
-
-    item.append(name, stars, message);
+    item.append(name,stars,message);
     list.appendChild(item);
   });
 }
 
 function addReview(event) {
   event.preventDefault();
-
   const reviews = getReviews();
-
   reviews.push({
-    name: document.getElementById('review-name').value.trim(),
-    rating: Number(document.getElementById('review-rating').value),
-    text: document.getElementById('review-text').value.trim()
+    name:document.getElementById('review-name').value.trim(),
+    rating:Number(document.getElementById('review-rating').value),
+    text:document.getElementById('review-text').value.trim()
   });
-
-  localStorage.setItem(
-    'timevisuals-reviews',
-    JSON.stringify(reviews)
-  );
-
+  localStorage.setItem('timevisuals-reviews',JSON.stringify(reviews));
   event.target.reset();
   renderReviews();
   alert('Отзыв сохранён!');
@@ -768,16 +412,12 @@ function addReview(event) {
 
 function demoLogin(event) {
   event.preventDefault();
-
   const name = document.getElementById('username').value.trim();
-
   document.getElementById('account-message').textContent =
-    'Привет, ' + name +
-    '! Это демонстрационный вход, регистрация пока не подключена.';
+    'Привет, ' + name + '! Это демонстрационный вход, регистрация пока не подключена.';
 }
 
 renderReviews();
 </script>
-
 </body>
-</html>
+        </html>
